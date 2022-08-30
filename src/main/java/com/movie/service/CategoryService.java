@@ -73,7 +73,7 @@ public class CategoryService {
     private CategoryDto toCategoryDto(Category category){
         CategoryDto categoryDto = new CategoryDto();
         categoryDto.setCategoryTitle(category.getCategoryTitle());
-        categoryDto.setCategoryId(categoryDto.getCategoryId());
+        categoryDto.setCategoryId(category.getCategoryId());
 
         return categoryDto;
 
