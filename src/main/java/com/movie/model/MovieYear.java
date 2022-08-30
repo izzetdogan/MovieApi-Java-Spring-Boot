@@ -3,6 +3,7 @@ package com.movie.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 
@@ -16,7 +17,7 @@ public class MovieYear {
     private Integer id;
 
     @JoinColumn(name = "movie_year" , nullable = false)
-    private Integer year ;
+    private int year ;
 
 
 }
