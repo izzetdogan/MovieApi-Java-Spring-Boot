@@ -26,6 +26,10 @@ public class Movie {
 
     private String movieImage;
 
+    private String movieUrl;
+
+    private  String trailer;
+
     @ManyToOne
     @JoinColumn(name="movieYear_id")
     private MovieYear year;
