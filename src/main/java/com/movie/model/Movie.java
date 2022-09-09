@@ -34,10 +34,16 @@ public class Movie {
     @JoinColumn(name="movieYear_id")
     private MovieYear year;
 
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category;
+    @ManyToMany
+    @JoinTable(
+            name = "movie_genre",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    Set<Genre> genres = new HashSet<>();
 
+
+
+    /*
     @ManyToOne
     @JoinColumn(name="user_id")
     private  User user;
@@ -48,5 +54,7 @@ public class Movie {
 
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<Like> likes = new ArrayList<>();
+
+     */
 
 }
