@@ -1,8 +1,9 @@
 package com.movie.dto;
 
+import lombok.Data;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
+@Data
 public class CommentDto {
     private Long id;
     @NotBlank

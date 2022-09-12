@@ -19,12 +19,12 @@ public class Comment {
 
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY )
+    @ManyToOne(fetch = FetchType.EAGER )
     @JoinColumn(name = "movie_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Movie movie;
 
-    @ManyToOne(fetch = FetchType.LAZY )
+    @ManyToOne(fetch = FetchType.EAGER )
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
