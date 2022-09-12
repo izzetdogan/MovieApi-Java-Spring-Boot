@@ -20,7 +20,6 @@ public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String genre;
 
     @ManyToMany(mappedBy = "genres")
