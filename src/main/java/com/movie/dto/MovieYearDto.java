@@ -1,10 +1,12 @@
 package com.movie.dto;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.Min;
 
+@EqualsAndHashCode
 @Getter
 @Setter
 public class MovieYearDto {
