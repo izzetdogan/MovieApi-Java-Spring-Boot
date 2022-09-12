@@ -1,9 +1,9 @@
 package com.movie.model;
 
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 
@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "movieYear")
+@EqualsAndHashCode
 public class MovieYear {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
