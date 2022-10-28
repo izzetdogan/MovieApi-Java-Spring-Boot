@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
 
 data class UserCreateRequest(
-        @field:NotEmpty(message = "Password cannot be null")
+        @field:NotEmpty(message = "User cannot be null")
         val name: String?="user",
         @field:Email(message = "It must be email")
         val email: String,
