@@ -61,13 +61,13 @@ public class UserController {
 
     // Add Movie To User Movie List
     @Operation(summary = "Add Movie To User-Movie-List --> by userID, movieID ")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('NORMAL')")
     @PatchMapping("/{id}/movie-list/{movieId}")
     public ResponseEntity<UserDto> addMovieToUserList(@PathVariable Long id, @PathVariable Long movieId){
         return  ResponseEntity.ok(this.userService.addMovieToUserMovieList(id,movieId));
     }
     @Operation(summary = "Remove Movie From  User-Movie-List --> by userID, movieID ")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('NORMAL')")
     @PatchMapping("/{id}/movie-list-remove/{movieId}")
     public ResponseEntity<UserDto> removeMovieFromUserMovieList(@PathVariable Long id, @PathVariable Long movieId){
         return ResponseEntity.ok(this.userService.removeMovieFromUserMovieList(id,movieId));
