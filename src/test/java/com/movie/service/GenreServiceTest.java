@@ -1,6 +1,5 @@
 package com.movie.service;
 
-import com.movie.dto.GenreDto;
 import com.movie.model.Genre;
 import com.movie.repository.GenreRepository;
 import com.movie.request.GenreRequest;
@@ -10,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 
 class GenreServiceTest {

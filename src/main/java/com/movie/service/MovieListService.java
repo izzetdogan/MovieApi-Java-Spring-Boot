@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,17 +46,13 @@ public class MovieListService {
         List<MovieList> movieList;
         if(type!=null && !"".equals(type) && genre!=null && !"".equals(genre)){
             movieList = this.movieListRepository.findByTypes(type);
-            System.out.println("Çalıştı ilk");
         }else if(type!=null && !"".equals(type)){
-            System.out.println("Çalıştı 2");
-            return  movieListRepository.findByTypes(type).stream()
+            return  movieListRepository.findByTypes(type).stream().filter(i->i.getMovies().size()>2)
                     .map(MovieListDto::convert).toList();
         }else{
-            System.out.println("Çalıştı 3");
-            return  movieListRepository.findAll().stream()
+            return  movieListRepository.findAll().stream().filter(i->i.getMovies().size()>2)
                     .map(MovieListDto::convert).toList();
         }
-        System.out.println("Çalıştı son");
         Genre findGenre = this.genreRepository.findByGenre(genre);
         List<MovieList> movieLists = movieList.stream().map(l-> new MovieList(l.getId(), l.getTitle(),l.getTypes())).toList();
         int listCounter = 0;
@@ -73,9 +70,9 @@ public class MovieListService {
             }
             listCounter++;
         }
-        return movieLists.stream().map(MovieListDto::convert).toList();
-        //return movieLists.stream().filter(i->i.getMovies().stream().count() > 2)
-        //.map(this::toDto).collect(Collectors.toList());
+       // return movieLists.stream().map(MovieListDto::convert).toList();
+        return movieLists.stream().filter(i-> (long) Objects.requireNonNull(i.getMovies()).size() > 2)
+        .map(MovieListDto::convert).collect(Collectors.toList());
 
 
     }
